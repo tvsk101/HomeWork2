@@ -37,5 +37,10 @@ namespace HomeWork2
         {
             return (new Group());
         }
+        // Создать должность
+        public TeacherPost MakePost()
+        {
+            return (new TeacherPost());
+        }
     }
 }

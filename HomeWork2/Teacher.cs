@@ -16,6 +16,10 @@ namespace HomeWork2
         {
 
         }
+        // Должность
+        public TeacherPost teacherpost;
+        // Учится ли
+        public bool thispost = true;
         // Количество лекций
         private int lecture;
         // По умолчанию групп нет
@@ -44,6 +48,16 @@ namespace HomeWork2
         public void SetGroup(Group group)
         {
             this.group = group;
+        }
+        public void Retirement()
+        {
+            this.thispost = false;
+            teacherpost.UpTeacherData();
+        }
+        // Вывести группу студента
+        public string GetNewPost()
+        {
+            return (this.teacherpost.NamePost);
         }
     }
 }

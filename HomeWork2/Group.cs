@@ -58,10 +58,10 @@ namespace HomeWork2
             }
             catch { }
         }
-        // Список студентов
-        public List<Student> GroupList()
-        {
-            return (this.students);
-        }
+        //// Список студентов
+        //public List<Student> GroupList()
+        //{
+        //    return (this.students);
+        //}
     }
 }

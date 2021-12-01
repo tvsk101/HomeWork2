@@ -20,11 +20,13 @@ namespace HomeWork2
             Student student1 = headofHR.MakeStudent("Данил", "Данилов", "Данилович");
             Student student2 = headofHR.MakeStudent("Даниил", "Даниилов", "Даниилович");
 
+
             // Выводим ФИО и должности всех людей
             Console.WriteLine($"ФИО: {headofHR.GetInitials()} | Должность: {headofHR.GetPost()}");
             Console.WriteLine($"ФИО: {teacher1.GetInitials()} | Должность: {teacher1.GetPost()}");
             Console.WriteLine($"ФИО: {student1.GetInitials()} | Должность: {student1.GetPost()}");
             Console.WriteLine($"ФИО: {student2.GetInitials()} | Должность: {student2.GetPost()}");
+
 
             // Создаем новую группу студентов
             Group group = headofHR.MakeGroup();
@@ -39,6 +41,9 @@ namespace HomeWork2
             group.AddStudent(student1);
             group.AddStudent(student2);
 
+            // Вывод названия группы
+            Console.WriteLine($"Группа студента {student1.GetInitials()} : {student1.GetGroup()}");;
+
             // Назначаем учителю количество лекций
             teacher1.Lecture = 50;
             Console.WriteLine("Назначено лекций преподавателю: " + teacher1.Lecture);
@@ -52,8 +57,6 @@ namespace HomeWork2
 
             Console.WriteLine("После проведения лекций: " + teacher1.Lecture);
 
-            // Вывод названия группы
-            Console.WriteLine("Группа студентов: " + student1.GetGroup());
 
             // Вывод количества студентов группы
             Console.WriteLine("Студентов в группе: " + group.GetNumberOfStudents());
@@ -65,11 +68,40 @@ namespace HomeWork2
             Console.WriteLine("Студент отчислился");
             Console.WriteLine("Студентов в группе: " + group.GetNumberOfStudents());
 
-            // Назначаем учителя на должность Ассистента
 
+            // Назначаем преподавателя на должность Ассистента
 
-            // Назначаем учителя на должность Главного Учителя
+            // Кадровик создает новую должность
+            TeacherPost assistant = headofHR.MakePost();
 
+            // Имя новой должности
+            assistant.NamePost = "Ассистент";
+
+            // Добавляем преподавателя на новую должность
+            assistant.AddTeacher(teacher1);
+
+            // Выводим ФИО преподавателя и его новую должность
+            Console.WriteLine($"Должность преподавателя {teacher1.GetInitials()} : {teacher1.GetNewPost()}");
+            
+            // Снимаем преподавателя с должности
+            teacher1.Retirement();
+
+            // Назначаем преподавателя на должность Главного Учителя
+
+            // Кадровик создает новую должность
+            TeacherPost seniorteacher = headofHR.MakePost();
+
+            // Имя новой должности
+            seniorteacher.NamePost = "Старший преподаватель";
+
+            // Добавляем преподавателя на новую должность
+            seniorteacher.AddTeacher(teacher1);
+
+            // Выводим ФИО преподавателя и его новую должность
+            Console.WriteLine($"Должность преподавателя {teacher1.GetInitials()} : {teacher1.GetNewPost()}");
+
+            // Снимаем преподавателя с должности
+            teacher1.Retirement();
 
         }
     }
