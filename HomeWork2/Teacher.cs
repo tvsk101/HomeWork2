@@ -12,12 +12,29 @@ namespace HomeWork2
     /// </summary>
     public class Teacher : Worker
     {
-        public Teacher(string name, string surname, string lastname) : base(name, surname, lastname, "Преподаватель")
+        public enum Posts
+        {
+            Assistant,
+            ElderTeacher
+        }
+        static string[] PostsArr = new string[] { "Ассистент", "Старший преподаватель" };
+
+        //public void GetDictPost()
+        //{
+        //    Dictionary<string, Posts> postsvalues = new Dictionary<string, Posts>();
+        //    postsvalues.Add("Ассистент", Posts.Assistant);
+        //    postsvalues.Add("Старший преподаватель", Posts.ElderTeacher);
+        //}
+        
+
+        public Teacher(string name, string surname, string lastname, Posts post) 
+            : base(name, surname, lastname, PostsArr[(int)post])
         {
 
         }
         // Должность
         public TeacherPost teacherpost;
+        
         // Учится ли
         public bool thispost = true;
         // Количество лекций

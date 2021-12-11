@@ -28,9 +28,17 @@ namespace HomeWork2
             group.AddStudent(student);
         }
         // Создать учителя
-        public Teacher MakeTeacher(string name, string surname, string lastname)
+        public Teacher MakeTeacher(string name, string surname, string lastname, bool exp )
         {
-            return (new Teacher(name, surname, lastname));
+            if (exp)
+            {
+                return (new Teacher(name, surname, lastname, Teacher.Posts.ElderTeacher));
+            }
+            else
+            {
+                return (new Teacher(name, surname, lastname, Teacher.Posts.Assistant));
+            }
+
         }
         // Создать группу
         public Group MakeGroup()

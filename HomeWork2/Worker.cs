@@ -9,31 +9,23 @@ namespace HomeWork2
     /// <summary>
     /// Класс Работник, содержащий ФИО, Инициалы, Должность
     /// </summary>
-    public abstract class Worker : IWorkerInterface
+    public abstract class Worker : Human
     {
-        public string iname { get; set; }
-        public string isurname { get; set; }
-        public string ilastname { get; set; }
-        public string ipost { get; set; }
-
-        // Работник с ФИО
-        public Worker(string name, string surname, string lastname, string post)
+        public Worker(string name, string surname, string lastname, string post) : base(name, surname, lastname)
         {
-            iname = name;
-            isurname = surname;
-            ilastname = lastname;
-            ipost = post;
+            this.post = post;
         }
-        // Метод, возвращающий ФИО (Инициалы)
-        public string GetInitials()
+        private string post;
+        public string Post
         {
-            string initials = iname + " " + isurname + " " + ilastname;
-            return initials;
+            get
+            {
+                return (this.post);
+            }
         }
-        // Метод, возвращающий должность
         public string GetPost()
         {
-            return this.ipost;
+            return this.post;
         }
     }
 }

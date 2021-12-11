@@ -14,7 +14,8 @@ namespace HomeWork2
             HeadOfHR headofHR = new HeadOfHR("Иван", "Иванов", "Иванович");
 
             // Объявляем учителя
-            Teacher teacher1 = headofHR.MakeTeacher("Дмитрий", "Дмитров", "Дмитриевич");
+            Teacher teacher1 = headofHR.MakeTeacher("Дмитрий", "Дмитров", "Дмитриевич", true);
+            Teacher teacher2 = headofHR.MakeTeacher("Дмитрий", "Дмитров", "Дмитриевич", false);
 
             // Объявляем двух студентов
             Student student1 = headofHR.MakeStudent("Данил", "Данилов", "Данилович");
@@ -24,8 +25,7 @@ namespace HomeWork2
             // Выводим ФИО и должности всех людей
             Console.WriteLine($"ФИО: {headofHR.GetInitials()} | Должность: {headofHR.GetPost()}");
             Console.WriteLine($"ФИО: {teacher1.GetInitials()} | Должность: {teacher1.GetPost()}");
-            Console.WriteLine($"ФИО: {student1.GetInitials()} | Должность: {student1.GetPost()}");
-            Console.WriteLine($"ФИО: {student2.GetInitials()} | Должность: {student2.GetPost()}");
+            Console.WriteLine($"ФИО: {teacher2.GetInitials()} | Должность: {teacher2.GetPost()}");
 
 
             // Создаем новую группу студентов
@@ -68,40 +68,6 @@ namespace HomeWork2
             Console.WriteLine("Студент отчислился");
             Console.WriteLine("Студентов в группе: " + group.GetNumberOfStudents());
 
-
-            // Назначаем преподавателя на должность Ассистента
-
-            // Кадровик создает новую должность
-            TeacherPost assistant = headofHR.MakePost();
-
-            // Имя новой должности
-            assistant.NamePost = "Ассистент";
-
-            // Добавляем преподавателя на новую должность
-            assistant.AddTeacher(teacher1);
-
-            // Выводим ФИО преподавателя и его новую должность
-            Console.WriteLine($"Должность преподавателя {teacher1.GetInitials()} : {teacher1.GetNewPost()}");
-            
-            // Снимаем преподавателя с должности
-            teacher1.Retirement();
-
-            // Назначаем преподавателя на должность Главного Учителя
-
-            // Кадровик создает новую должность
-            TeacherPost seniorteacher = headofHR.MakePost();
-
-            // Имя новой должности
-            seniorteacher.NamePost = "Старший преподаватель";
-
-            // Добавляем преподавателя на новую должность
-            seniorteacher.AddTeacher(teacher1);
-
-            // Выводим ФИО преподавателя и его новую должность
-            Console.WriteLine($"Должность преподавателя {teacher1.GetInitials()} : {teacher1.GetNewPost()}");
-
-            // Снимаем преподавателя с должности
-            teacher1.Retirement();
 
         }
     }

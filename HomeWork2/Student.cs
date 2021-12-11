@@ -12,9 +12,9 @@ namespace HomeWork2
     /// Имеет группу
     /// Может отчислиться
     /// </summary>
-    public class Student : Worker
+    public class Student : Human
     {
-        public Student(string name, string surname, string lastname) : base(name, surname, lastname, "Студент")
+        public Student(string name, string surname, string lastname) : base(name, surname, lastname)
         {
 
         }
